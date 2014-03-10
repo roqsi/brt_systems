@@ -1,0 +1,67 @@
+extends layout
+
+block content
+    h1.dis-left= title
+    div.row
+        form.form-horizontal#formAddUser(name="addbug",method="post",action="/addbug")
+            div.first-group
+                div.control-group
+                    label.control-label Bug Number
+                    div.controls
+                        input#inputBugNumber(type="text", name="BugNumber")
+                div.control-group
+                    label.control-label Date
+                    div.controls
+                        input#inputdate(type="text", name="date")
+                div.control-group
+                    label.control-label Status
+                    div.controls
+                        input#inputstatus(type="text", name="status")
+                div.control-group
+                    label.control-label Priority
+                    div.controls
+                        input#inputpriority(type="text", name="priority")
+                div.control-group
+                    label.control-label Summary
+                    div.controls
+                        input#inputsummary(type="text", name="summary")
+            div.second-group
+                div.control-group
+                    label.control-label Build
+                    div.controls
+                        input#inputbuild(type="text", name="build")
+                div.control-group
+                    label.control-label Language
+                    div.controls
+                        textarea#inputlanguage(type="text", name="language")
+                div.control-group
+                    label.control-label Device
+                    div.controls
+                        textarea#inputdevice(type="text", name="device")
+                div.control-group
+                    label.control-label OS
+                    div.controls
+                        textarea#inputos(type="text", name="os")
+                div.control-group
+                    label.control-label Repro
+                    div.controls
+                        input#inputrepro(type="text", name="repro")
+            div.third-group
+                div.control-group
+                    label.control-label Steps to Reproduce 
+                    div.controls
+                        textarea#inputStepsToReproduce(type="text", name="StepsToReproduce")
+                div.control-group
+                    label.control-label Observed Results
+                    div.controls
+                        textarea#inputObservedResults(type="text", name="ObservedResults")
+                div.control-group
+                    label.control-label Expected Results 
+                    div.controls
+                        textarea#inputExpectedResults(type="text", name="ExpectedResults")
+                div.control-group
+                    label.control-label Requirement 
+                    div.controls
+                        textarea#inputrequirement(type="text", name="requirement")
+            div.last-part
+                button.btn#btnSubmit(type="submit") submit

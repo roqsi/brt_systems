@@ -1,0 +1,24 @@
+doctype
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/lib/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/lib/bootstrap/css/bootstrap-responsive.min.css')
+    link(rel='stylesheet', href='/lib/css/main.css')
+    script(src='/lib/jQuery/jquery.js')
+    script(src='/lib/bootstrap/js/bootstrap.min.js')
+    body
+        div.navbar.navbar-fixed-top
+            div.navbar-inner
+                div.row
+                    a(data-toggle='collapse',data-target='.nav-collapse').btn.btn-navbar
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    div.nav-collapse
+                        ul.nav
+                            li(class=title=='BUG LIST'?'active' :undefined)
+                                a(href='http://dadivank:3000/buglist') BUG LIST
+                            li(class=title=='NEW BUG'?'active' :undefined)
+                                a(href='http://dadivank:3000/newbug') NEW BUG
+        block content

@@ -1,0 +1,16 @@
+extends layout
+
+block content
+    h1.dis-left= title
+    div.row
+        div.table-group
+            table
+                each bug, i in buglist
+                    tr
+                        td
+                            a(href="#{bug._id}/editbug")= bug.BugNumber
+                        td.mid-col
+                            a(href="#{bug._id}/editbug")= bug.summary
+                        td
+                            a(href="#{bug._id}/delete")
+                                span(class="icon-trash")

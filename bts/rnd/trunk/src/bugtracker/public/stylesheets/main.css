@@ -1,0 +1,53 @@
+#sortable1, #sortable2, #sortable3, #sortable4, #sortable5, #sortable6{
+    list-style-type: none;
+    margin: 4%;
+    padding: 0 0 0;
+    float: left;
+    margin-right: 10px;
+}
+
+#sortable1 li, #sortable2 li, #sortable3 li, #sortable4 li, #sortable5 li, #sortable6 li{
+    margin: 0 3px 3px 3px;
+    padding: 3px;
+    font-size: 1em;
+    width: 100px;
+}
+
+#first {
+    list-style-type: none;
+    margin: 4%;
+    padding: 0 0 0;
+    float: left;
+    margin-right: 10px;
+}
+
+#first li {
+    margin: 0 3px 3px 3px;
+    padding: 3px;
+    font-size: 1em;
+    width: 40px;
+    background: red;
+}
+
+.container {
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: #778899;
+}
+ul#first {
+    border-style:solid;
+}
+
+ul#sortable1,ul#sortable2 ,ul#sortable3,ul#sortable4 ,ul#sortable5,ul#sortable6 {
+    border-style:solid;
+}
+
+h3 {
+    text-align: center;
+    background:white;
+    width: 100%;
+}
+
+#horizontal li {
+    display: inline;
+}

@@ -1,0 +1,58 @@
+body {
+    padding: 60px 0 40px 0;
+    background-color: #F0F0F0;
+}
+
+div.row {
+    background-color: white;
+    border-radius: 5px;
+    width: 1420px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.dis-left {
+    margin-left: 145px;
+}
+
+div.first-group, div.second-group, div.third-group {
+    background-color: #F0F0F0;
+    border-radius: 5px;
+    float: left;
+    margin: 25px;
+    padding: 10px;
+    max-width: 
+}
+
+div.table-group {
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+    float: left;
+}
+
+table,th,td {
+    border:1px solid #CCCCCC;
+    border-collapse:collapse;
+}
+
+td.mid-col {
+    min-width: 300px;
+}
+
+th,td {
+    padding:5px;
+}
+
+div.last-part {
+    width: 500px;
+}
+
+button.btn {
+    margin: 25px;
+}
+
+.j-temp, .d-temp {
+    min-width: 625px;
+    min-height: 725px;
+}

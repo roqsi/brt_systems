@@ -1,0 +1,125 @@
+extends layout
+
+block content
+    h1.dis-left= title
+    div.row
+        each bug, i in buglist
+            form.form-horizontal#formEditUser(name="addbug",method="post",action="/#{bug._id}/edit")
+                div.first-group
+                    div.control-group
+                        label.control-label Bug Number
+                        div.controls
+                            input#inputBugNumber(type="text", name="BugNumber" value="#{bug.BugNumber}")
+                    div.control-group
+                        label.control-label Date
+                        div.controls
+                            input#inputdate(type="text", name="date" value="#{bug.date}")
+                    div.control-group
+                        label.control-label Status
+                        div.controls
+                            input#inputstatus(type="text", name="status" value="#{bug.status}")
+                    div.control-group
+                        label.control-label Priority
+                        div.controls
+                            input#inputpriority(type="text", name="priority" value="#{bug.priority}")
+                    div.control-group
+                        label.control-label Summary
+                        div.controls
+                            input#inputsummary(type="text", name="summary" value="#{bug.summary}")
+                div.second-group
+                    div.control-group
+                        label.control-label Build
+                        div.controls
+                            textarea#inputbuild(type="text", name="build") #{bug.build}
+                    div.control-group
+                        label.control-label Language
+                        div.controls
+                            textarea#inputlanguage(type="text", name="language") #{bug.language}
+                    div.control-group
+                        label.control-label Device
+                        div.controls
+                            textarea#inputdevice(type="text", name="device") #{bug.device}
+                    div.control-group
+                        label.control-label OS
+                        div.controls
+                            textarea#inputos(type="text", name="os") #{bug.os}
+                    div.control-group
+                        label.control-label Repro
+                        div.controls
+                            input#inputrepro(type="text", name="repro" value="#{bug.repro}")
+                div.third-group
+                    div.control-group
+                        label.control-label Steps to Reproduce 
+                        div.controls
+                            textarea#inputStepsToReproduce(type="text", name="StepsToReproduce") #{bug.StepsToReproduce}
+                    div.control-group
+                        label.control-label Observed Results
+                        div.controls
+                            textarea#inputObservedResults(type="text", name="ObservedResults") #{bug.ObservedResults}
+                    div.control-group
+                        label.control-label Expected Results 
+                        div.controls
+                            textarea#inputExpectedResults(type="text", name="ExpectedResults") #{bug.ExpectedResults}
+                    div.control-group
+                        label.control-label Requirement
+                        div.controls
+                            textarea#inputrequirement(type="text", name="requirement") #{bug.requirement}
+                div.last-part
+                    button.btn#btnSubmit(type="submit") Confirm
+    div.row
+        div.pull-right
+            input#inputJiraTemplate(type="button" value="Jira Template")
+            input#inputDevTrackTemplate(type="button" value="DevTrack Template")
+    div.row             
+        div.first-group.hide
+            div.control-group
+                label.control-label Jira Bug Template
+                div.controls
+                    textarea.j-temp#inputJiraBugTemplate(type="text", name="JiraBugTemplate")
+        div.second-group.hide
+            div.control-group
+                label.control-label Dev Track Template
+                div.controls
+                    textarea.d-temp#inputDevTrackBugTemplate(type="text", name="DevTrackTemplate")
+    script(type='text/javascript').
+        $(document).ready(function() {
+            var data = {}
+            data.build = $("#inputbuild").val();
+            data.summary = $("#inputsummary").val();
+            data.language = $("#inputlanguage").val();
+            data.device = $("#inputdevice").val();
+            data.os = $("#inputos").val();
+            data.repro = $("#inputrepro").val();
+            data.StepsToReproduce = $("#inputStepsToReproduce").val();
+            data.ObservedResults = $("#inputObservedResults").val();
+            data.ExpectedResults = $("#inputExpectedResults").val();
+            data.requirement = $("#inputrequirement").val();
+            data.BugNumber = $("#inputBugNumber").val();
+            data.status = $("#inputstatus").val();
+            data.date = $("#inputdate").val();
+            data.priority = $("#inputpriority").val();
+            $("#inputJiraTemplate").click(function() { 
+                $.ajax({
+                    type: 'POST',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                    url: 'http://dadivank:3000/getJiraTemplate',     
+                    success: function(data) {
+                        $("#inputJiraBugTemplate").parents(".first-group").removeClass("hide");
+                        $("#inputJiraBugTemplate").val(data);
+                    }
+                });
+            });        
+            $("#inputDevTrackTemplate").click(function() { 
+                $.ajax({
+                    type: 'POST',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json',
+                    url: 'http://dadivank:3000/getDevTrackTemplate',     
+                    success: function(data) {
+                        $("#inputDevTrackBugTemplate").parents(".second-group").removeClass("hide")
+                        $("#inputDevTrackBugTemplate").val(data);
+                    }
+                });
+            });        
+        });
